@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MP3 Player — Nicholas Short</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a href="../index.html" class="brand">Nicholas Short</a>
+    <nav>
+      <a href="../index.html">Projects</a>
+      <a href="../resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <a class="back" href="../index.html">&larr; All projects</a>
+
+  <article>
+    <h1>MP3 Player</h1>
+    <p class="tagline">A portable, rechargeable, long lasting music player desgined for wired headphones.</p>
+
+    <h2>Overview</h2>
+    <p>
+      This project was designed for use on long roadtrips, flights and runs. Using a clip on the back of the device,
+      this MP3 player sticks to your shirt/collar to keep your hands free while listening. The device makes use of 
+      four tactile buttons to navigate your music files and playlists, with audio feedback so that you know where
+      you currently are in the file system. The device is rechargeable via USB-C, also through which the device acts
+      as a mass storage device for easy file access, instead of interfacing solely through the SD card.
+    </p>
+
+    <figure>
+      <img src="../assets/img/mp3-hero.jpg" alt="MP3 player prototype">
+      <figcaption>PCB (Top Side)</figcaption>
+    </figure>
+
+    <h2>Hardware</h2>
+    <ul>
+      <li>MCU: STM32F4CEU6</li>
+      <li>Audio: TAD5442 DAC</li>
+      <li>Storage: Micro SD card via SPI</li>
+      <li>Battery: 800mAh LiPo</li>
+      <li>RGB: WS2812 Addressabled LEDs</li>
+    </ul>
+
+    <h2>Firmware</h2>
+    <p>
+      TODO
+    </p>
+
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://github.com/nicholasshort/MP3-Player" target="_blank" rel="noopener">Source on GitHub</a></li>
+    </ul>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; Nicholas Short</span>
+    <span>
+      <a href="mailto:nicholas.r.h.short@gmail.com">Email</a> ·
+      <a href="https://github.com/nicholasshort" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicholasrhshort/" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

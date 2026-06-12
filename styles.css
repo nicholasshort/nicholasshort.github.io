@@ -1,0 +1,205 @@
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --rule: #e5e5e5;
+  --accent: #2b6cb0;
+  --max-w: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+a:hover { border-bottom-color: var(--accent); }
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* Header / nav */
+header.site {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+header.site .wrap {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+header.site .brand {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--fg);
+  border: none;
+}
+header.site nav a {
+  color: var(--muted);
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  border: none;
+}
+header.site nav a:hover,
+header.site nav a.active { color: var(--fg); }
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.4rem; margin-top: 2.5rem; }
+h3 { font-size: 1.1rem; margin-top: 1.75rem; }
+
+.tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0 0 2rem;
+}
+
+p { margin: 0 0 1rem; }
+
+/* Lists of projects on home page */
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.project-list li {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.project-list li:last-child { border-bottom: none; }
+.project-list a.title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--fg);
+  border: none;
+}
+.project-list a.title:hover { color: var(--accent); }
+.project-list .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.15rem 0 0.4rem;
+}
+.project-list .summary {
+  color: var(--fg);
+  margin: 0;
+}
+
+/* Project detail pages */
+.back {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  border: none;
+}
+.back:hover { color: var(--fg); }
+
+article figure {
+  margin: 2rem 0;
+}
+article figure img,
+article figure video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+}
+article figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+article ul { padding-left: 1.25rem; }
+article li { margin-bottom: 0.35rem; }
+
+/* Contact row */
+.contact {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.contact a { color: var(--muted); border: none; }
+.contact a:hover { color: var(--fg); }
+
+/* Resume page */
+.resume-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+.resume-actions a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--fg);
+  font-size: 0.95rem;
+}
+.resume-actions a:hover {
+  border-color: var(--fg);
+  background: #fff;
+}
+.resume-embed {
+  width: 100%;
+  height: 90vh;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+/* Footer */
+footer.site {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+footer.site .wrap {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.6rem; }
+  header.site .wrap { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  header.site nav a { margin-left: 1rem; margin-right: 0; }
+  .resume-embed { height: 75vh; }
+}
