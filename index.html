@@ -3,27 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nicholas Short — In Progress</title>
-  <meta name="description" content="Nicholas Short — site in progress.">
+  <title>Nicholas Short</title>
+  <meta name="description" content="Nicholas Short — Embedded Firmware & Hardware Engineer.">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .in-progress {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .in-progress h1 { font-size: 2.25rem; margin: 0 0 0.75rem; }
-    .in-progress p { color: var(--muted); margin: 0; }
-  </style>
 </head>
 <body>
 
-<main class="wrap in-progress">
-  <h1>In Progress</h1>
-  <p>Check back soon.</p>
+<header class="site">
+  <div class="wrap">
+    <a href="index.html" class="brand">Nicholas Short</a>
+    <nav>
+      <a href="index.html" class="active">Projects</a>
+      <a href="resume.html">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Nicholas Short</h1>
+  <p class="tagline">Embedded Firmware &amp; Hardware Engineer</p>
+
+  <h2>Featured Projects</h2>
+  <ul class="project-list">
+
+    <li>
+      <a class="title" href="projects/greenbox.html">GreenBox</a>
+      <p class="meta">IoT</p>
+      <p class="summary">Residential HVAC System Optimizer</p>
+    </li>
+
+     <li>
+      <a class="title" href="projects/mp3-player.html">MP3 Player</a>
+      <p class="meta">Embedded systems</p>
+      <p class="summary">Battery-powered STM32-based MP3 Player</p>
+    </li>
+
+    <li>
+      <a class="title" href="projects/digital-guitar-pedal.html">Digital Guitar Pedal</a>
+      <p class="meta">DSP</p>
+      <p class="summary">Digital Effect STM32-based Guitar Pedal.</p>
+    </li>
+
+   
+
+  </ul>
 </main>
 
 <footer class="site">

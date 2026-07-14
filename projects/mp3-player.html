@@ -35,8 +35,23 @@
     </p>
 
     <figure>
-      <img src="../assets/img/mp3-hero.jpg" alt="MP3 player prototype">
-      <figcaption>PCB (Top Side)</figcaption>
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/WeZTj9I9hhg"
+          title="MP3 Player demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <figcaption>Demo video</figcaption>
+    </figure>
+
+    <figure class="pair">
+      <div class="pair-grid">
+        <img src="../assets/img/mp3-top.JPEG" alt="MP3 player PCB, top side">
+        <img src="../assets/img/mp3-bottom.JPEG" alt="MP3 player PCB, bottom side">
+      </div>
+      <figcaption>PCB — top and bottom</figcaption>
     </figure>
 
     <h2>Hardware</h2>
@@ -49,8 +64,20 @@
     </ul>
 
     <h2>Firmware</h2>
+    <p>The audio processing pipeline is structured as follows:</p>
+
+    <p class="pipeline">SD card → FatFs → MP3 Decoder → PCM audio → I2S → DAC → Headphones</p>
+
     <p>
-      TODO
+      The SD card is FAT32 formatted, and I have implemented a simple low-level SPI driver to communicate
+      with the card. This driver is then connected to the FatFs disk I/O interface to provide the ability
+      for the application to use familiar standard file system operations.
+    </p>
+    <p>
+      Compressed raw bytes from a selected MP3 file are read and passed into the Helix MP3 decoder, which
+      in turn outputs the corresponding decoded PCM audio. Through the use of a ping-pong buffer, these
+      audio samples are then fed to the DAC via I2S over DMA. The headphones are driven by the DAC itself,
+      and no driver circuitry was required.
     </p>
 
     <h2>Links</h2>
