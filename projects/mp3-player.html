@@ -27,11 +27,11 @@
 
     <h2>Overview</h2>
     <p>
-      This project was designed for use on long roadtrips, flights and runs. Using a clip on the back of the device,
-      this MP3 player sticks to your shirt/collar to keep your hands free while listening. The device makes use of 
-      four tactile buttons to navigate your music files and playlists, with audio feedback so that you know where
-      you currently are in the file system. The device is rechargeable via USB-C, also through which the device acts
-      as a mass storage device for easy file access, instead of interfacing solely through the SD card.
+      This board was designed for long roadtrips, long walks/runs, and any event that would require a longer battery life. 
+      Using a clip on the back of the device, this MP3 player sticks to your shirt/collar to keep your hands free while listening. 
+      The device makes use of four tactile buttons to navigate your music files and playlists, with audio feedback so that you know 
+      where you currently are in the filesystem. USB facilitates battery charging, and supports the USB mass storage device class for 
+      easy file access.
     </p>
 
     <figure>
@@ -69,15 +69,14 @@
     <p class="pipeline">SD card → FatFs → MP3 Decoder → PCM audio → I2S → DAC → Headphones</p>
 
     <p>
-      The SD card is FAT32 formatted, and I have implemented a simple low-level SPI driver to communicate
-      with the card. This driver is then connected to the FatFs disk I/O interface to provide the ability
-      for the application to use familiar standard file system operations.
+      A simple low-level SPI driver is used to communicate with the card. This driver is then connected to the FatFs 
+      disk I/O interface to allow the application to use familiar, standard filesystem operations.
     </p>
     <p>
       Compressed raw bytes from a selected MP3 file are read and passed into the Helix MP3 decoder, which
       in turn outputs the corresponding decoded PCM audio. Through the use of a ping-pong buffer, these
       audio samples are then fed to the DAC via I2S over DMA. The headphones are driven by the DAC itself,
-      and no driver circuitry was required.
+      and no driver circuitry is required.
     </p>
 
     <h2>Links</h2>
