@@ -23,51 +23,46 @@
 
   <article>
     <h1>GreenBox</h1>
-    <p class="tagline">Short one-line description of what GreenBox is.</p>
+    <p class="tagline">A product to reduce home heating costs and emissions without sacrificing comfort.</p>
 
     <h2>Overview</h2>
     <p>
-      Write what the project is, what problem it solves, and who it's for.
-      A paragraph or two is plenty.
+      The GreenBox is a commercial HVAC controller designed to reduce costs and emissions for homes with two heating sources:
+      a heat pump and a furnace. The device intelligently tracks system performance metrics, including heat pump coefficient
+      of performance (COP) and furnace efficiency, and combines this data with cloud-connected dynamic real-time parameters
+      such as grid emissions, electricity prices, and natural gas prices. Based on these parameters and the homeowner's preferences,
+      the GreenBox ensures optimal heating at all times. The GreenBox is currently reducing costs and emissions for over 50
+      homes across Canada and the US.
     </p>
 
-    <!-- Add an image: drop the file in /assets/img/ and update the src. -->
     <figure>
-      <img src="../assets/img/greenbox-hero.jpg" alt="GreenBox prototype">
-      <figcaption>Caption goes here.</figcaption>
+      <img src="../assets/img/greenbox.jpeg" alt="GreenBox controller enclosure">
+      <figcaption>The GreenBox controller</figcaption>
     </figure>
 
     <h2>Hardware</h2>
-    <ul>
-      <li>Microcontroller: e.g. STM32F4</li>
-      <li>Sensors: e.g. SHT31, BH1750</li>
-      <li>Power: e.g. 18650 + TP4056</li>
-    </ul>
-
-    <h2>Firmware</h2>
     <p>
-      Describe the firmware stack — RTOS, key drivers, comms protocols, etc.
+      I designed and brought up more than five generations of the custom GreenBox control board. The system interfaces with standard
+      24VAC residential HVAC equipment, monitors thermostat and equipment signals, collects temperature data from several points
+      throughout the HVAC system, and controls heat pump and furnace operation.
     </p>
 
-    <!-- Add a video: drop a file in /assets/video/ and update src,
-         or embed YouTube with an <iframe>. -->
-    <!--
     <figure>
-      <video controls>
-        <source src="../assets/video/greenbox-demo.mp4" type="video/mp4">
-      </video>
-      <figcaption>Demo video.</figcaption>
+      <img src="../assets/img/greenbox-installed.jpeg" alt="GreenBox installed on a residential HVAC system">
+      <figcaption>A GreenBox installed on a residential furnace</figcaption>
     </figure>
-    -->
 
-    <h2>Results &amp; lessons</h2>
-    <p>
-      What worked, what didn't, what you'd do differently next time.
-    </p>
+    <h2>Key Features</h2>
+    <ul>
+      <li>Real-time optimization between heat pump and furnace based on live electricity, gas, and grid-emissions data</li>
+      <li>Continuous measurement of heat pump COP and furnace efficiency to inform switching decisions</li>
+      <li>Compatible with any standard 24VAC thermostats and HVAC equipment</li>
+      <li>Cloud-connected for remote monitoring, updates, and homeowner preferences</li>
+    </ul>
 
     <h2>Links</h2>
     <ul>
-      <li><a href="https://github.com/nicholasshort" target="_blank" rel="noopener">Source on GitHub</a></li>
+      <li><a href="https://www.getthegreenbox.com/" target="_blank" rel="noopener">Official Site</a></li>
     </ul>
   </article>
 </main>
