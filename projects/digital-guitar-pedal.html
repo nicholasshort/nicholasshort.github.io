@@ -23,30 +23,55 @@
 
   <article>
     <h1>Digital Guitar Pedal</h1>
-    <p class="tagline">Short one-line description of the pedal.</p>
+    <p class="tagline">A custom digital audio effects pedal</p>
 
     <h2>Overview</h2>
     <p>
-      Describe the pedal — effects implemented (distortion, delay, reverb…),
-      target hardware, motivation.
+      A few years ago, I bought my first electric guitar. I was interested to learn a new skill, but also to learn something
+      that could teach me more about audio electronics and digital audio processing. I created this pedal for exactly that reason.
+      The internal PCB is built around an STM32H7 MCU and a PCM3060 audio codec, and includes analog frontend and analog output circuitry.
+      The enclosure includes a 3PDT footswitch to enable/disable the pedal, as well as two potentiometers to adjust effect parameters.
     </p>
 
-    <figure>
-      <img src="../assets/img/pedal-hero.jpg" alt="Digital guitar pedal prototype">
-      <figcaption>Caption goes here.</figcaption>
+    <figure class="pair">
+      <div class="pair-grid">
+        <img src="../assets/img/guitar-enclosure.jpeg" alt="Assembled pedal in its enclosure">
+        <img src="../assets/img/guitar-board.jpeg" alt="Internal PCB of the guitar pedal">
+      </div>
+      <figcaption>The assembled pedal and its internal PCB</figcaption>
     </figure>
 
-    <h2>Signal chain</h2>
-    <ul>
-      <li>ADC: e.g. PCM1808</li>
-      <li>DSP: e.g. STM32H7 / Daisy Seed</li>
-      <li>DAC: e.g. PCM5102</li>
-    </ul>
+    <h2>Firmware</h2>
+    <p>
+      This pedal runs at a 48kHz sampling rate, and uses two 2KB byte ping-pong buffers for audio input and output that are handled via DMA. 
+      Each sample consists of 24bits in a 32bit frame. The PCM3060 only allows for stereo audio, so only 50% of each pingpong buffer contains 
+      audio information since this is a mono pedal. A 2KB byte "stereo" buffer consumed at 48kHz means that audio output latency is around 5ms,
+      which isn't noticeable while playing.
+    </p>
 
     <h2>DSP algorithms</h2>
+
+    <h3>Delay</h3>
     <p>
-      Walk through the effects and how they're implemented (filter design,
-      block size, sample rate, latency).
+      
+    </p>
+
+    <div class="equation">
+      <span class="eq-line"><var>y</var>[<var>n</var>] = (1 &minus; <var>m</var>) &middot; <var>x</var>[<var>n</var>] + <var>m</var> &middot; <var>d</var>[<var>n</var> &minus; <var>k</var>]</span>
+      <span class="eq-line"><var>d</var>[<var>n</var>] = <var>x</var>[<var>n</var>] + <var>g</var> &middot; <var>d</var>[<var>n</var> &minus; <var>k</var>]</span>
+      <dl class="eq-legend">
+        <dt><var>x</var>[<var>n</var>]</dt><dd>input signal</dd>
+        <dt><var>y</var>[<var>n</var>]</dt><dd>output signal</dd>
+        <dt><var>d</var>[<var>n</var>]</dt><dd>delay signal</dd>
+        <dt><var>g</var></dt><dd>comb filter feedback gain</dd>
+        <dt><var>m</var></dt><dd>dry/wet mix parameter</dd>
+      </dl>
+    </div>
+
+    <p>
+      The delay algorithm I've implemented uses a very simple structure. It consists of a delay line and a
+      dry/wet mixer, as described by the equations above. In the software, the delay line consists of 24 thousand samples, 
+      meaning at 48kHz we can hear a maximum delay of up to 500ms.
     </p>
 
     <!-- Audio sample example:
@@ -58,7 +83,7 @@
 
     <h2>Links</h2>
     <ul>
-      <li><a href="https://github.com/nicholasshort" target="_blank" rel="noopener">Source on GitHub</a></li>
+      <li><a href="https://github.com/nicholasshort/GuitarFX" target="_blank" rel="noopener">Source on GitHub</a></li>
     </ul>
   </article>
 </main>
